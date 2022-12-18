@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\SampleController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SetupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(SampleController::class)->group(function(){
+Route::controller(AuthController::class)->group(function(){
 
     Route::get('login', 'index')->name('login');
 
@@ -32,5 +33,12 @@ Route::controller(SampleController::class)->group(function(){
     Route::post('validate_login', 'validate_login')->name('sample.validate_login');
 
     Route::get('dashboard', 'dashboard')->name('dashboard');
+
+});
+
+
+Route::controller(SetupController::class)->group(function(){
+
+    Route::get('office', 'office_index')->name('office');
 
 });

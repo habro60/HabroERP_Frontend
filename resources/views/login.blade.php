@@ -8,6 +8,13 @@
 {{ $message }}
 </div>
 
+<div class="alert alert-danger">
+	Email: {{Session::get('temp_email_info')}}
+</div>
+<div class="alert alert-danger">
+	Password: {{Session::get('temp_password_info')}}
+</div>
+
 @endif
 
 <div class="row justify-content-center">
