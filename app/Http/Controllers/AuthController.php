@@ -74,14 +74,16 @@ class AuthController extends Controller
 
          $credentials = Http::post('http://127.0.0.1:8000/api/login', $request->only('email', 'password'));
 
-        // return $credentials['token'];
+         //return $credentials;
+        
+       $request->session()->put('token_info',$credentials['token']);
+        
+        //  $credentials2[] = $credentials; 
 
-         $credentials2[] = $credentials; 
-
-        // $credentials2 = array(
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        // );
+        $credentials = array(
+            'email' => $request->email,
+            'password' => $request->password,
+        );
 
         
 
